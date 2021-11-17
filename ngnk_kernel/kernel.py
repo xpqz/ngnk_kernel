@@ -11,8 +11,8 @@ version_pat = re.compile(r'version (\d+(\.\d+)+)')
 class NgnkKernel(Kernel):
     implementation = 'ngnk_kernel'
     implementation_version = __version__
-    cmd = '/usr/bin/rlwrap ./k/k-libc ./k/repl.k'
-    prompt = 'ngnk> '
+    cmd = '/home/jovyan/k/k-libc /home/jovyan/k/repl.k'
+    prompt = u'ngnk> '
     silent = False
 
     @property
