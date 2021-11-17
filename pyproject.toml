@@ -7,7 +7,7 @@ module = "ngnk_kernel"
 author = "Stefan Kruger"
 author-email = "stefan.kruger@gmail.com"
 home-page = "https://github.com/xpqz/ngnk_kernel"
-requires = ["pexpect (>=4.0)"]
+requires = ["pexpect (>=4.0)", "ipykernel"]
 description-file = "README.md"
 classifiers = [
     "Framework :: IPython",
