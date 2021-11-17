@@ -22,9 +22,9 @@ def install_my_kernel_spec(user=True, prefix=None):
             json.dump(kernel_json, f, sort_keys=True)
         # TODO: Copy resources once they're specified
 
-        print('Installing IPython kernel spec')
+        print('Installing IPython kernel spec for ngnk_kernel')
         KernelSpecManager().install_kernel_spec(td,
-                                                'bash',
+                                                'ngnk',
                                                 user=user,
                                                 prefix=prefix)
 
