@@ -63,6 +63,7 @@ class NgnkKernel(Kernel):
 
     @property
     def language_version(self):
+        # TODO
         m = version_pat.search(self.banner)
         return m.group(1)
 
