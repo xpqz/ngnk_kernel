@@ -37,7 +37,7 @@ class NgnkKernel(Kernel):
         self._start_ngnk()
 
     def _start_ngnk(self):
-        self.ngnkwrapper = replwrap.REPLWrapper(self.cmd, self.prompt, None)
+        self.ngnkwrapper = replwrap.REPLWrapper(self.cmd, self.prompt, u'\r\n')
 
     def process_output(self, output):
         if not self.silent:
