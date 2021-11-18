@@ -14,7 +14,7 @@ Change the line
 
 in `NgnkKernel` to reflect your ngn/k installation location.
 
-Change the prompt in `repl.k` and rebuild:
+Change the prompt in `repl.k`:
 
     repl.prompt:"ngnk> "
 
