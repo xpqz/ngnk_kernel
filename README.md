@@ -8,13 +8,13 @@ This kernel is designed to run in a docker container, which fetches the most ble
 
 If you want to run this kernel 'natively' instead of in Docker, you need to do two things:
 
-1. Change the line
+Change the line
 
     cmd = '/home/jovyan/k/k-libc /home/jovyan/k/repl.k'
 
 in `NgnkKernel` to reflect your ngn/k installation location.
 
-2. Change the prompt in `repl.k` and rebuild:
+Change the prompt in `repl.k` and rebuild:
 
     repl.prompt:"ngnk> "
 
