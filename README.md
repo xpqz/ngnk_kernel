@@ -28,6 +28,12 @@ Run container as `ngnk`
 
     docker run --name ngnk --rm -p 8888:8888 -v ./notebooks ngnkern
 
+or, better, as
+
+    docker run --name ngnk --rm -p 8888:8888 -v "$(pwd)"/notebooks:/home/jovyan/notebooks ngnkern
+
+sharing a directory `./notebooks` on the host as `/home/jovyan/notebooks` in the container for persistence.
+
 If everything worked as intended, you should be given a URL to open.
 
 To open a shell on the running container, you can do
