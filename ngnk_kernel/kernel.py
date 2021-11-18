@@ -83,7 +83,7 @@ class NgnkKernel(Kernel):
         self._start_ngnk()
 
     def _start_ngnk(self):
-        self.ngnkwrapper = replwrap.IREPLWrapper(
+        self.ngnkwrapper = IREPLWrapper(
             self.cmd,
             self.prompt,
             None,
