@@ -13,13 +13,16 @@ RUN apt-get update && \
 
 USER $NB_UID
 
+# RUN pip install jupyter_contrib_nbextensions
+# RUN jupyter contrib nbextension install --user
+# RUN jupyter nbextension enable spellchecker/main
+
 # Fetch and build ngn/k
 RUN git clone https://codeberg.org/ngn/k.git && \
     cd k && \
-    git rev-parse --short HEAD > VER && \
-    sed 's/repl.prompt:," "/repl.prompt:"ngnk> "/' repl.k>repl.k.new && \
-    mv repl.k.new repl.k && \
     make k-libc
+
+ENV NGNKDIR=/home/jovyan/k
 
 # Install the flit tool; a simplified python package manager
 RUN pip install flit
