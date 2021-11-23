@@ -3,6 +3,7 @@ Derived from bash_kernel (https://github.com/takluyver/bash_kernel)
 """
 
 from ipykernel.kernelbase import Kernel
+import os
 from pexpect import replwrap, EOF
 
 import re
@@ -10,6 +11,7 @@ import re
 __version__ = '0.1'
 
 version_pat = re.compile(r'version (\d+(\.\d+)+)')
+NGNKDIR = os.environ['NGNKDIR']
 
 
 class IREPLWrapper(replwrap.REPLWrapper):
@@ -18,6 +20,7 @@ class IREPLWrapper(replwrap.REPLWrapper):
                  cmd_or_spawn,
                  orig_prompt,
                  prompt_change,
+                 new_prompt,
                  extra_init_cmd=None,
                  line_output_callback=None):
         self.line_output_callback = line_output_callback
@@ -25,6 +28,7 @@ class IREPLWrapper(replwrap.REPLWrapper):
                                       cmd_or_spawn,
                                       orig_prompt,
                                       prompt_change,
+                                      new_prompt,
                                       extra_init_cmd=extra_init_cmd)
 
     def _expect_prompt(self, timeout=-1):
@@ -47,7 +51,7 @@ class IREPLWrapper(replwrap.REPLWrapper):
 class NgnkKernel(Kernel):
     implementation = 'ngnk_kernel'
     implementation_version = __version__
-    cmd = '/home/jovyan/k/k-libc /home/jovyan/k/repl.k'
+    cmd = f'{NGNKDIR}/k-libc {NGNKDIR}/repl.k'
     prompt = u'ngnk> '
 
     @property
@@ -75,8 +79,9 @@ class NgnkKernel(Kernel):
     def _start_ngnk(self):
         self.ngnkwrapper = IREPLWrapper(
             self.cmd,
-            self.prompt,
-            None,
+            ' ',  # Prompt defaults to single space
+            'repl.prompt:"ngnk> "',  # Command to change prompt
+            self.prompt,  # New prompt after change
             line_output_callback=self.process_output)
 
     def process_output(self, output):
