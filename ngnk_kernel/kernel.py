@@ -51,7 +51,7 @@ class IREPLWrapper(replwrap.REPLWrapper):
 class NgnkKernel(Kernel):
     implementation = 'ngnk_kernel'
     implementation_version = __version__
-    cmd = f'{NGNKDIR}/k-libc {NGNKDIR}/repl.k'
+    cmd = f'{NGNKDIR}/k {NGNKDIR}/repl.k'
     prompt = u'ngnk> '
 
     @property
