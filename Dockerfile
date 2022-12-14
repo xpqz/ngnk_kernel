@@ -20,7 +20,7 @@ USER $NB_UID
 # Fetch and build ngn/k
 RUN git clone https://codeberg.org/ngn/k.git && \
     cd k && \
-    make k-libc
+    make k-dflt
 
 ENV NGNKDIR=/home/jovyan/k
 
